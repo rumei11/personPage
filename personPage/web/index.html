@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/tools.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/ajaxTools.js"></script>
+    <script src="./js/mangeAlbum.js"></script>
+    <!-- <script src="./js/test.js"></script> -->
+</head>
+<style>
+    .rgInfo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 2vw;
+    }
+
+    .rgInfo a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .rgInfo a:hover {
+        color: rgb(58, 58, 231);
+    }
+
+    .rgInfo img {
+        width: 30px;
+    }
+
+    .imgLogoBox {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 15px;
+        border: 1px solid rgba(17, 3, 2, 0);
+        overflow: hidden;
+        vertical-align: middle;
+    }
+
+    .rgInfo .top-user-menu {
+        position: absolute;
+        top: 35px;
+        right: 2vw;
+        background-color: #fff;
+        padding: 0 1vw;
+        border-radius: 5px;
+        display: none;
+    }
+
+    .rgInfo .top-user-menu a {
+        display: block;
+        padding: 2px;
+    }
+
+    nav {
+        margin: 5vw 20vw;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .contBox {
+        margin: 2vw 1vw;
+        background-color: #fff;
+        border: 1px solid rgba(173, 171, 171, 0.514);
+        border-radius: 10px;
+    }
+
+    .contBox .navContent {
+        padding: 20px;
+        display: none;
+    }
+
+    .contBox .activeCont {
+        display: block;
+    }
+
+    .panel {
+        border: 1px solid rgba(173, 171, 171, 0.514);
+    }
+
+    .input-group-addon {
+        line-height: 0;
+    }
+
+    .panel-heading {
+        background-color: rgba(194, 179, 179, 0.288);
+    }
+
+    /* .flex .panel {
+        display: flex;
+        justify-content: space-between;
+    } */
+    .sex-choose {
+        text-align: center;
+
+    }
+
+    .sex-choose label,
+    .sex-choose input {
+        display: inline-block;
+        width: 40px;
+
+    }
+
+    .manager-top {
+        margin: 1vw 0;
+        /* border: 1px solid rgb(204, 200, 200); */
+    }
+
+    .manager-bottom {
+        margin: 4vw 0;
+    }
+
+    .manager-bottom .row {
+        line-height: 40px;
+        height: 40px;
+        text-align: center;
+        border: 1px solid #ccc;
+        margin-bottom: 14px;
+    }
+
+    .padding10 {
+        padding: 20px 30px 30px;
+    }
+
+    html body {
+        background-image: linear-gradient(150deg, rgb(247, 248, 248), rgb(191, 221, 224), rgb(146, 216, 221), rgb(83, 179, 192));
+    }
+
+    .transpFile {
+        position: absolute;
+        top: -4px;
+        left: 0;
+        opacity: 0;
+    }
+
+    .btn-success.btn-xs {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .shareAlbumDetailC,
+    .shareAlbumC,
+    .allUserC,
+    .myAlbumC,
+    .myAlbumDetailC {
+        margin-right: -35px;
+        overflow: hidden;
+    }
+
+    .shareAlbumDetailC .panel,
+    .shareAlbumC .panel,
+    .allUserC .panel,
+    .myAlbumC .panel,
+    .myAlbumDetailC .panel {
+        width: 180px;
+        float: left;
+        margin: 0 30px 30px 0;
+        text-align: center;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .allUserC .panel {
+        font-size: 12px;
+    }
+
+    .shareAlbumDetailC .panel-body img,
+    .myAlbumDetailC .panel-body img {
+        width: 40%;
+    }
+
+    .shareAlbumC .panel-body img,
+    .allUserC .panel-body img {
+        height: 60px;
+    }
+
+    .shareAlbumC .panel-body,
+    .myAlbumC .panel-body,
+    .myAlbumDetailC .panel-body {
+        height: 150px;
+        line-height: 120px;
+        padding: 0;
+        background-image: url(./image/default.png);
+        background-size: 50% 70%;
+        background-repeat: no-repeat;
+        background-position: 50px 20px;
+        overflow: hidden;
+    }
+
+    .shareAlbumDetailC .panel-body,
+    .allUserC .panel-body {
+        height: 150px;
+        line-height: 120px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    .shareAlbumDetailC,
+    .myAlbumDetailC {
+        overflow: hidden;
+    }
+
+    .shareAlbumDetailC .spanBox,
+    .shareAlbumC .spanBox,
+    .myAlbumDetailC .spanBox {
+        margin: 10px 0;
+    }
+
+    .toFixImg {
+        margin: 20px auto 40px;
+        position: relative;
+        border: 1px solid #999;
+    }
+
+    .toFixImg .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .toFixImg .avatar {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.4;
+
+    }
+
+    .layer .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color: red;
+        position: absolute;
+        bottom: -5px;
+        right: -5px;
+    }
+
+    .middle {
+        width: 40px;
+        height: 20px;
+        margin: 10px auto;
+    }
+</style>
+
+<body>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">提示</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="largeContainer">
+        <div class="logbox">
+            <img src="./image/log.png" alt="icon">
+            <div class="ld">
+                <div class="titleText">
+                    <p style="letter-spacing: 0.5vw;">急存管家</p>
+                    <p>www.jicun.com</p>
+                </div>
+            </div>
+            <div class="rd">
+                <p>你的私人数据管理系统</p>
+            </div>
+        </div>
+        <div class="userInfo">
+            <div class="rgInfo">
+                <div class="imgLogoBox" id="imgLogoBoxI"> <a href="#part4"><img></a></div>
+                <strong class="userNmae" id="userNmae"></strong>
+                <div class="top-user-menu">
+                    <a href="/login.html">全部用户</a>
+                    <a href="/login.html">我的相册</a>
+                    <a href="/login.html">管理相册</a>
+                    <a href="/login.html">修改信息</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><a href="#part0">全部用户</a></li>
+            <li role="presentation"><a href="#part1">我的相册</a></li>
+            <li role="presentation"><a href="#part2">管理相册</a></li>
+            <li role="presentation"><a href="#part3">修改信息</a></li>
+        </ul>
+        <div class="contBox">
+            <div class="activeCont navContent">
+                <div id="allUser" class="allUserC"></div>
+                <div id="shareAlbum" class="shareAlbumC"></div>
+                <div id="shareAlbumDetail" class="shareAlbumDetailC"></div>
+            </div>
+            <div class="navContent">
+                <div id="myAlbum" class="myAlbumC"></div>
+                <div id="myAlbumDetail" class="myAlbumDetailC"></div>
+            </div>
+            <div class="manager navContent">
+                <div class="manager-top">
+                    <div class="panel pane-default">
+                        <form>
+                            <div class="panel-heading">
+                                <label class="control-label" for="inputSuccess5">创建相册</label>
+                            </div>
+                            <div class="panel-body input-group">
+                                <input type="text" class="form-control" id="inputSuccess5" name="password"
+                                    autocomplete="off">
+                                <span class="input-group-addon" aria-hidden="true">创建相册</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="manager-bottom">
+                    <div class="panel pane-default ">
+                        <form>
+                            <div class="panel-heading">
+                                <label class="control-label" for="inputSuccess1">操作相册</label>
+                            </div>
+                            <div class="panel-body padding10">
+                                <div class="row title">
+                                    <div class="col-xs-4">相片名称</div>
+                                    <div class="col-xs-2">相片数量</div>
+                                    <div class="col-xs-2">是否共享</div>
+                                    <div class="col-xs-2">上传图片</div>
+                                    <div class="col-xs-2">删除图片</div>
+                                </div>
+                                <div class="box" id="albumBox">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="changeData navContent">
+                <div class="panel pane-default">
+                    <form>
+                        <div class="panel-heading">
+                            <label class="control-label" for="inputSuccess1">修改密码</label>
+                        </div>
+                        <div class="panel-body input-group">
+                            <input type="text" class="form-control" id="inputSuccess1" name="password">
+                            <span class="input-group-addon" aria-hidden="true">提交</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel pane-default">
+                    <form>
+                        <div class="panel-heading">
+                            <label class="control-label" for="inputSuccess2">修改年龄</label>
+                        </div>
+                        <div class="panel-body input-group">
+                            <input type="text" class="form-control" id="inputSuccess2" name="age">
+                            <span class="input-group-addon" aria-hidden="true">提交</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel pane-default">
+                    <form>
+                        <div class="panel-heading">
+                            <label class="control-label">修改性别</label>
+                        </div>
+                        <div class="panel-body input-group">
+                            <div class="form-control sex-choose">
+                                <lable>男</lable>
+                                <input type="radio" name="sex" value="boy">
+                                <lable>女</lable>
+                                <input type="radio" name="sex" value="girl">
+                                <lable>保密</lable>
+                                <input type="radio" name="sex" value="secret">
+                            </div>
+                            <span class="input-group-addon" aria-hidden="true">提交</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="panel pane-default">
+                    <form>
+                        <div class="panel-heading">
+                            <label class="control-label" for="inputSuccess3">修改头像</label>
+                        </div>
+                        <div class="panel-body input-group">
+                            <input type="file" class="form-control" id="inputSuccess3" name="headImg">
+                            <span class="input-group-addon" aria-hidden="true">提交</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="navContent" id="layerSection">
+                <div class="toFixImg" id="toFixImg">
+                    <div class="avatar"></div>
+                    <div class="layer">
+                        <div class="dot"></div>
+                    </div>
+
+                </div>
+                <div class="middle" id="middle"> <button class="btn btn-success">确定</button></div>
+            </div>
+        </div>
+        </div>
+    </nav>
+</body>
+<script>
+</script>
+
+</html>

@@ -1,0 +1,27 @@
+.logbox {
+    margin:.5vw 20vw;
+    height: 5vw;
+}
+.logbox img {
+    margin-top: 1vw;
+    height: 4vw;
+}
+
+.logbox .ld {
+    font-size: 1vw;
+    margin: 1vw;
+}
+.logbox .rd {
+    font-size: 2vw;
+    line-height: 3vw;
+}
+.userInfo {
+    margin: 0 20vw;
+    position: relative;
+    top: -2.5vw;
+    right: -1px;
+    z-index: 999;
+}
+.modal-content {
+    top: 14vw;
+}

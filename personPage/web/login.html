@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/tools.js"></script>
+    <script src="./js/style.js"></script>
+    <script src="./js/check.js"></script>
+</head>
+<style>
+
+</style>
+
+<body>
+    <div id="boxCircle"></div>
+
+    <div class="logbox">
+        <img src="./image/log.png" alt="icon">
+        <div class="ld">
+            <div class="titleText">
+                <p style="letter-spacing: 0.5vw;">急存管家</p>
+                <p>www.jicun.com</p>
+            </div>
+        </div>
+        <div class="rd">
+            <p>你的私人数据管理系统</p>
+        </div>
+    </div>
+    <div class="options">
+        <span data-index="1" class="boxShadow" id="lg">登录</span>
+        <span data-index="4" id="rgNew">注册</span>
+        <span data-index="5">设置</span>
+        <span data-index="2">邀请码</span>
+        <span data-index="3">忘记密码</span>
+        <span data-index="6" id="picSs">感谢支持</span>
+    </div>
+    <div class="loginMain">
+        <div class="login">
+            <p class="rg">登录</p>
+            <form>
+                <label for="eMaeil">用户名</label><input type="email" id="eMaeil" class="eMaeil" name="email"
+                    autocomplete="off">
+                <label for="userPs">密码</label><input type="password" id="userPs" class="userPs" name="password">
+                <p> <button type="button" id="toLogin">提交</button></p>
+            </form>
+            <p class="toPic"><a href="#">还没关注？扫一扫马上到</a></p>
+        </div>
+        <div class="register">
+            <p class="rg">注册</p>
+            <form>
+                <label for="email">邮箱</label><input type="email" id="email" class="eMaeil" name="email"
+                    autocomplete="off">
+                <span class="glyphicon  form-control-feedback"></span>
+                <label for="userPs">密码</label><input type="password" id="userPs" class="userPs" name="password">
+                <span class="glyphiconPs  form-control-feedbackPs"></span>
+                <label for="confirPs">确认密码</label><input type="password" id="confirPs" class="confirPs">
+                <span class="glyphiconPsAgain  form-control-feedbackPsAgain"></span>
+                <p> <button type="button" id="toRegister">提交</button></p>
+            </form>
+            <p class="toPic"><a href="#">还没关注？扫一扫马上到</a></p>
+        </div>
+        <div class="resetPsw">
+            <p class="rg">找回密码</p>
+            <label for="eMaeil">邮箱</label><input type="email" id="eMaeil" class="eMaeil" name="email">
+            <p class="emailConfirm"> <input type="text" id="confirMsg" class="userPs" name="confirMsg"><button
+                    type="button" class="submitEmail">发送</button></p>
+            <label for="userPs">密码</label><input type="password" id="userPs" class="userPs" name="password">
+            <label for="confirPs">确认密码</label><input type="password" id="confirPs" class="confirPs">
+            <p> <button type="button" id="toResetPsw">提交</button></p>
+        </div>
+        <div class="setting">
+            <p>
+                蓝色背景<input type="radio" name="color" id="color">
+            </p>
+            <p>
+                自动登录<input type="radio" name="selfLog" id="selfLog">
+            </p>
+            <p>
+                保存密码<input type="radio" name="saveps" id="saveps">
+            </p>
+            <p><button type="button">提交</button></p>
+        </div>
+        <div class="invetNumb">
+            <p>你的邀请码:</p>
+            <input type="text">
+        </div>
+        <div class="thankForSpt"><img src="./image/planar.jpg" alt="planar">
+            <p>感谢关注，与你同行</p>
+        </div>
+    </div>
+</body>
+
+</html>

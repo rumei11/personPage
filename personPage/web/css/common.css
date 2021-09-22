@@ -1,0 +1,268 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+p {
+    margin: 0;
+}
+
+input {
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: rgb(199, 223, 223);
+    border-bottom: 2px solid rgb(74, 214, 214);
+    font-size: 16px;
+}
+html  {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(150deg,rgb(247, 248, 248),rgb(191, 221, 224),rgb(146, 216, 221),rgb(83, 179, 192))
+}
+.logbox {
+    position: relative;
+    width: 60vw;
+    height: 10vw;
+    margin: 2vw auto;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    z-index: 999;
+}
+.logbox img {
+    margin-top: 1vw;
+    height: 8vw;
+}
+
+.logbox .ld {
+    flex: 1;
+    font-size: 1.4vw;
+    display: flex;
+    justify-content: left;
+    margin: 2.8vw;
+}
+.logbox .rd {
+    flex: 1;
+    text-align: right;
+    font-size: 2.2vw;
+    line-height: 10vw;
+    font-family: cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.circle {
+    border-radius: 50%;
+    background-color: rgb(189, 226, 226);
+    opacity: 0.6;
+    overflow: hidden;
+}
+.options {
+    width: 26rem;
+    height: 2rem;
+    line-height: 2rem;
+    margin:5rem auto;
+    overflow: hidden;
+    font-size: 16px;
+    text-align: center;
+    position: relative;
+    z-index: 999;
+}
+span {
+padding: 0 10px;   
+cursor: pointer; 
+}
+.boxShadow {
+    box-shadow:0 0 10px  rgb(168, 161, 52) inset;
+}
+@keyframes toRote{
+    0%{
+        transform: rotateY(0);
+    }
+    50%{
+        transform: rotateY(180deg); 
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+.loginMain  {
+    width: 18rem;
+    height: 24rem;  
+    margin: 2rem auto;
+    position: relative;
+    transform-style: preserve-3d;
+    /* animation: toRote 8s linear 0s infinite ; */
+    transition: all 0.8S ;
+}
+
+.loginMain div{ 
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 3px solid rgb(51, 188, 206);
+    background-color: rgb(199, 223, 223);
+    opacity: 0.98;
+}
+
+.loginMain .setting,.loginMain .thankForSpt{
+    height: 16rem;
+}
+.login {
+    padding: 0 1.4rem;
+    transform: translateZ(8rem) rotateX(0);
+}
+.register
+{
+    padding: 0 1.4rem;
+    transform: translateX(8rem) rotateY(90deg);
+}
+.resetPsw {
+    transform: translateZ(-8rem) rotateY(180deg);
+}
+.setting{
+    transform:  translateY(-8rem) rotateX(90deg);
+}    
+.invetNumb{
+    transform: translateX(-8rem) rotateY(-90deg);
+}  
+.thankForSpt{
+    transform:   translateY(14rem) rotateX(-90deg);
+}
+.register label ,.login label {
+    display: block;
+    width: 100%;
+    margin: 6px 0;
+}
+.login label {
+    margin: 10px 0;
+}
+.rg {
+    margin: 2rem 0 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(23, 117, 141);
+}
+.register  button,.login  button,.setting button,.resetPsw button{
+    display: inline-block;
+    width: 100%;
+    height: 2.5rem;
+    font-size: 18px;
+    margin: 1rem 0;
+    color: #fff;
+    background-color: rgb(33, 135, 143);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.login  button {
+    margin: 2rem 0;
+}
+
+.register p a,.login p a,.resetPsw p a{
+   text-decoration: none;
+   color: #000;
+}
+.register .toPic,.login .toPic,.thankForSpt p{
+    margin:0.6rem 0;
+    text-align: center;
+}
+
+.thankForSpt img {
+    width: 10rem;
+    margin: 1.5rem 50%;
+    margin-bottom: 0;
+    transform: translateX(-50%);
+}
+.setting {
+    padding:0 2rem;
+}
+.setting p {
+    margin:2rem 0;
+    display: flex;
+    
+}
+.setting p input{
+    margin-top: 0.3rem;
+    margin-left: -4rem;
+    flex: 1;
+
+}
+.setting button {
+    margin: 0;
+}
+.resetPsw {
+    padding:0 2rem;
+}
+.resetPsw .emailConfirm {
+    display: flex;
+    margin: 0 0 5px 0;
+}
+.resetPsw .emailConfirm  input {
+    width: 70%;
+}
+.resetPsw .emailConfirm  .submitEmail {
+flex: 1;
+font-size: 12px;
+margin:10px 5px;
+height: 1.5rem;
+} 
+.invetNumb {
+    padding: 0 2rem;
+}
+.invetNumb p {
+    margin: 5rem 0 0 0;
+}
+.invetNumb input {
+    margin: 2rem 0 0 0 ;
+}
+
+.revSection {
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    position:absolute;
+    top: 0;
+    left: 0;
+    border: none
+}
+@font-face {
+    font-family: "Glyphicons Halflings";
+    src: url("../fonts/glyphicons-halflings-regular.eot");
+    src: url("../fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  }
+  .glyphicon,.glyphiconPs,.glyphiconPsAgain {
+    font-family: "Glyphicons Halflings";
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .glyphicon-ok:before {
+    content: "\e013";
+    color: green;
+  }
+  .glyphicon-remove:before {
+    content: "\e014";
+    color: red;
+  }
+  .form-control-feedback,.form-control-feedbackPs,.form-control-feedbackPsAgain{
+    position: absolute;
+    top: 5.7rem;
+    right: 1rem;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    pointer-events: none;
+    
+  }
+  .register .form-control-feedbackPs {
+    top: 9.2rem;
+  }
+  .register .form-control-feedbackPsAgain {
+    top: 12.6rem;
+  }
