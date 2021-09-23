@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="userName"></div>
+    </div>
+    <div class="container mainCont">
+        <div class="panel panel-default userlise">
+            <div class="panel-heading"></div>
+            <div class="panel-body"></div>
+        </div>
+        <div class="panel panel-default msglist">
+            <div class="panel-heading"></div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="img-list" id="img-list"></div>
+    </div>
+    <div class="container ">
+        <div class="sendMsg input-group inp">
+            <textarea name="" class="form-control" id=""></textarea>
+            <span class="input-group-addon">发送</span>
+        </div>
+    </div>
+</body>
+<script>
+    let socket = io();
+    socket.on('connect', (...args) => {
+        let userName = prompt('请输入用户名') || '匿名用户';
+        $('.userName').html('用户:' + userName);
+        socket.emit('addName', userName);
+        socket.on('userEnter', ary => {
+            if (ary.length) {
+                $('.userlise .panel-body').html('');
+                ary.forEach(item => {
+                    let $div = $('<div class="item"></div>');
+                    $div.html(item);
+                    $('.userlise .panel-body').append($div);
+                })
+            }
+        })
+        socket.on('ickt', ({ error, data }) => {
+            $('#img-list').html('');
+            if (error === 0) {
+                data.forEach(item => {
+                    let $img = $('<img>');
+                    $img.prop('src', '/gif/' + item);
+                    $img.data('name', item.split('.')[0]);
+                    $('#img-list').append($img);
+                })
+            }
+            else {
+
+            }
+        })
+        socket.on('pubMsg', msg => {
+            msg = msg.replace(/\[([\w]*)\]/gi, ($1, $2) => `<img class="small-xx" src=/gif/${$2}.gif>`)
+            $('.msglist .panel-body').append($('<div class="item">' + msg + '</div>'))
+        })
+    })
+
+    $('#img-list').on('click', 'img', e => {
+        let str = `${$('textarea').val()}[${$(e.currentTarget).data('name')}]`;
+        $('textarea').val(str);
+    })
+    $('.input-group-addon').on('click', () => {
+        if (/^\s*$/.test($('textarea').val())) {
+            return alert('未检测到内容')
+        }
+        socket.emit('sendMsg', $('textarea').val());
+        $('textarea').val('');
+    })
+</script>
+
+</html>

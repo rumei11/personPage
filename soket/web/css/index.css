@@ -1,0 +1,51 @@
+.userName {
+    height: 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+.mainCont {
+ display: flex;
+ height: 500px;
+}
+.userlise {
+width: 300px;
+}
+.msglist {
+flex: 1;
+min-width: 200px ;
+margin-left: 20px;
+overflow:auto;
+}
+.input-group {
+    height: 70px;
+}
+.form-control {
+    height: 70px!important;
+}
+.item {
+    border: 1px solid #ccc;
+    padding: 6px 15px;
+    margin-bottom: 4px;
+}
+.form-control {
+    resize: none;
+}
+.img-list {
+    margin: 20px 0;
+    overflow: hidden;
+}
+.img-list img {
+    display:inline-block;
+    border-radius: 20px;
+    width: 40px;
+    height: 40px;
+    margin-right: 1px;
+}
+.small-xx {
+    display: inline-block;
+    border-radius: 15px;
+    margin: 0 2px;
+    width: 25px;
+    height: 25px;
+    vertical-align: middle;
+}
